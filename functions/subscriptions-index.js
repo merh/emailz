@@ -21,6 +21,7 @@ module.exports.handler = async (event, context, callback) => {
     // TODO: Remove authentication for this call but use it in the admin calls
     let authorization = event.headers.authorization.split(" ")
     const token = authorization[1]
+    console.log(token)
 
     try {
         const response = await client(token).query(
