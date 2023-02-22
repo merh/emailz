@@ -1,5 +1,6 @@
 require('dotenv').config()
 const faunadb = require('faunadb')
+import { returnError } from './utils/boilerplate.js'
 
 const q = faunadb.query
 let clientObject = null;
@@ -46,16 +47,7 @@ module.exports.handler = async (event, context, callback) => {
             data = unsubscribe()
             break
         default:
-            callback(null, {
-                statusCode: 400,
-                headers: {
-                    /* Required for CORS support to work */
-                    "Access-Control-Allow-Origin": "*",
-                    "Access-Control-Allow-Headers": "*",
-                    "Access-Control-Allow-Methods": "PATCH, OPTIONS",
-                },
-                body: JSON.stringify({ error: 'Unsupported action' })
-            })
+            returnError(callback, 400, 'Unsupported action')
     }
 
     try {

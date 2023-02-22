@@ -17,10 +17,9 @@ const client = key => {
 }
 
 module.exports.handler = async (event, context, callback) => {
-    //let payload = JSON.parse(event.body)
-    // TODO: Remove authentication for this call but use it in the admin calls
-    let authorization = event.headers.authorization.split(" ")
-    const token = authorization[1]
+    let authorization = event.headers.authorization?.split(" ")
+    const token = authorization?.[1] // coalesce into undefined instead of throwing error if header missing
+    console.log(token) // sometimes fails without this line?
 
     try {
         const response = await client(token).query(
@@ -30,6 +29,8 @@ module.exports.handler = async (event, context, callback) => {
                 )
             )
         )
+
+        console.log(response)
 
         callback(null, {
             statusCode: 200,
