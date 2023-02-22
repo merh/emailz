@@ -1,0 +1,11 @@
+export const USERS_CREATE = "users/create" // TODO: should be "user/create
+export const USERS_LOGIN = "users/login" // TODO: same as above
+export const USERS_RETRIEVE = "users/retrieve" // TODO: same as above
+export const USERS_LOGOUT = "users/logout" // TODO: same as above
+export const USERS_RETRIEVE_ALL = "users/retrieveAll"
+export const USERS_MAKE_ADMIN = "users/makeAdmin"
+export const USERS_DELETE_ONE = "users/deleteOne"
+export const SUBSCRIPTIONS_SUBSCRIBE = "subscriptions/subscribe"
+export const SUBSCRIPTIONS_UNSUBSCRIBE = "subscriptions/unsubscribe"
+export const SUBSCRIPTIONS_GDPR = "subscriptions/gdpr"
+export const SUBSCRIPTIONS_RETRIEVE_ALL = "subscriptions/retrieveAll"
